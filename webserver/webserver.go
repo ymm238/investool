@@ -44,13 +44,13 @@ func InitWithConfigFile(configFile string) {
 	// 设置 viper 中 webserver 配置项默认值
 	viper.SetDefault("env", "localhost")
 
-	viper.SetDefault("server.addr", ":4869")
+	viper.SetDefault("server.addr", ":9527")
 	viper.SetDefault("server.mode", gin.ReleaseMode)
 	viper.SetDefault("server.pprof", true)
 
 	viper.SetDefault("apidocs.title", "pink-lady swagger apidocs")
 	viper.SetDefault("apidocs.desc", "Using pink-lady to develop gin app on fly.")
-	viper.SetDefault("apidocs.host", "localhost:4869")
+	viper.SetDefault("apidocs.host", "localhost:9527")
 	viper.SetDefault("apidocs.basepath", "/")
 	viper.SetDefault("apidocs.schemes", []string{"http"})
 
