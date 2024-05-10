@@ -754,21 +754,21 @@ func (f Fund) Is4433(ctx context.Context) bool {
 	}
 	quarterRatio := float64(1) / float64(4) * 100.0
 	oneThirdRatio := float64(1) / float64(3) * 100.0
-	// 最近1年收益率排名在同类型基金的前四分之一；
-	if f.Performance.Year1RankRatio > quarterRatio {
+	// 最近1年收益率排名在同类型基金的前四分之一； 
+	if f.Performance.Year1RankRatio > oneThirdRatio {
 		return false
 	}
 	// 最近2年、3年、5年及今年以来收益率排名均在同类型基金的前四分之一；
-	if f.Performance.Year2RankRatio > quarterRatio || f.Performance.Year3RankRatio > quarterRatio || f.Performance.Year5RankRatio > quarterRatio ||
-		f.Performance.ThisYearRankRatio > quarterRatio {
+	if f.Performance.Year2RankRatio > oneThirdRatio || f.Performance.Year3RankRatio > oneThirdRatio || f.Performance.Year5RankRatio > quarterRatio ||
+		f.Performance.ThisYearRankRatio > oneThirdRatio {
 		return false
 	}
 	// 最近6个月收益率排名在同类型基金的前三分之一；
-	if f.Performance.Month6RankRatio > oneThirdRatio {
+	if f.Performance.Month6RankRatio > quarterRatio {
 		return false
 	}
 	// 最近3个月收益率排名在同类型基金的前三分之一；
-	if f.Performance.Month3RankRatio > oneThirdRatio {
+	if f.Performance.Month3RankRatio > quarterRatio {
 		return false
 	}
 	return true
